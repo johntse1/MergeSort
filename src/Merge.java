@@ -18,6 +18,40 @@ public class Merge
     }
     public void merge(int[] arr, int left, int mid, int right, int[] temp)
     {
+        int a = left;
+        int b= mid +1;
+        int c = left;
+        while(a<=mid && b<=right)
+        {
+            if(arr[a]<arr[b])
+            {
+                temp[c] = arr[a];
+                a++;
+            }
+            else
+            {
+                temp[c] = arr[b];
+                b++;
+            }
+            c++;
+        }
 
+        while(a<=mid)
+        {
+            temp[c] = arr[a];
+            a++;
+            c++;
+        }
+
+        while(b<=right)
+        {
+            temp[c] = arr[a];
+            b++;
+            c++;
+        }
+        for(int d = left;d<=right;d++)
+        {
+            arr[d] = temp[d];
+        }
     }
 }
